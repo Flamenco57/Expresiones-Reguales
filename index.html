@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="register-container">
+            <div class="register-header">
+                <div class="logo-circle">
+                    <i class="bi bi-person-plus"></i>
+                </div>
+                <h2 class="mb-1">Crear Cuenta</h2>
+                <p class="mb-0">Complete todos los campos correctamente</p>
+            </div>
+            
+            <div class="register-body">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div class="step-counter">Paso <span id="currentStep">1</span> de 4</div>
+                
+                <form id="registroForm">
+                    <div class="form-step active" id="step1">
+                        <div class="mb-3 form-floating">
+                            <i class="bi bi-person input-icon"></i>
+                            <input type="text" class="form-control floating-input" id="nombre" placeholder="Nombre completo" required>
+                            <label for="nombre">Nombre completo</label>
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Cada nombre debe comenzar con mayúscula y solo contener letras.</div>
+                        </div>
+                        <div class="requirement-box">
+                            <ul class="requirement-list">
+                                <li>Cada nombre debe comenzar con mayúscula</li>
+                                <li>Solo puede contener letras y espacios</li>
+                            </ul>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary btn-nav" onclick="nextStep(2)">Siguiente</button>
+                        </div>
+                    </div>
+                    <div class="form-step" id="step2">
+                        <div class="mb-3 form-floating">
+                            <i class="bi bi-envelope input-icon"></i>
+                            <input type="email" class="form-control floating-input" id="email" placeholder="Correo electrónico" required>
+                            <label for="email">Correo electrónico</label>
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Por favor ingrese un correo electrónico válido.</div>
+                        </div>
+                        <div class="nav-buttons">
+                            <button type="button" class="btn btn-outline-primary btn-nav" onclick="prevStep(1)">Anterior</button>
+                            <button type="button" class="btn btn-primary btn-nav" onclick="nextStep(3)">Siguiente</button>
+                        </div>
+                    </div>
+                    <div class="form-step" id="step3">
+                        <div class="mb-3 form-floating">
+                            <i class="bi bi-telephone input-icon"></i>
+                            <input type="tel" class="form-control floating-input" id="telefono" placeholder="Teléfono" required>
+                            <label for="telefono">Teléfono</label>
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">Ingrese un número telefónico válido (ej: +503 1234-5678).</div>
+                        </div>
+                        <div class="nav-buttons">
+                            <button type="button" class="btn btn-outline-primary btn-nav" onclick="prevStep(2)">Anterior</button>
+                            <button type="button" class="btn btn-primary btn-nav" onclick="nextStep(4)">Siguiente</button>
+                        </div>
+                    </div>
+                    <div class="form-step" id="step4">
+                        <div class="mb-3 form-floating">
+                            <i class="bi bi-lock input-icon"></i>
+                            <input type="password" class="form-control floating-input" id="password" placeholder="Contraseña" required>
+                            <span class="password-toggle" id="passwordToggle"><i class="bi bi-eye"></i></span>
+                            <label for="password">Contraseña</label>
+                            <div class="valid-feedback">¡Correcto!</div>
+                            <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres, una mayúscula, un número y un carácter especial.</div>
+                        </div>
+                        <div class="requirement-box">
+                            <ul class="requirement-list">
+                                <li>Mínimo 8 caracteres</li>
+                                <li>Al menos una letra mayúscula</li>
+                                <li>Al menos un número</li>
+                                <li>Al menos un carácter especial (@$!%*?&)</li>
+                            </ul>
+                        </div>
+                        <div class="nav-buttons">
+                            <button type="button" class="btn btn-outline-primary btn-nav" onclick="prevStep(3)">Anterior</button>
+                            <button type="submit" class="btn btn-register">Registrarse</button>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="success-message" id="mensajeExito">
+                    <h4><i class="bi bi-check-circle-fill"></i> ¡Registro Exitoso!</h4>
+                    <p class="mb-1">Tus datos han sido validados correctamente.</p>
+                    <p class="mb-0" id="resumenDatos"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
